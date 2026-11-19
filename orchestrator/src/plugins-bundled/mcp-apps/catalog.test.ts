@@ -9,7 +9,7 @@ import assert from 'node:assert/strict';
 import { readdirSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
-import { APP_CATALOG, appServerId } from './catalog.js';
+import { APP_CATALOG, appEntry, appServerId } from './catalog.js';
 import { APP_CATEGORIES, appEntrySchema } from './schema.js';
 
 const DIR = fileURLToPath(new URL('./catalog/', import.meta.url));
@@ -60,4 +60,20 @@ test('no entry carries a credential', () => {
 
 test('a server id stays a valid MCP id', () => {
   for (const entry of APP_CATALOG) assert.match(appServerId(entry.slug), /^[a-z0-9._-]+$/);
+});
+
+test('Parallel Search uses its reviewed endpoint and a vault-held API key', () => {
+  const parallel = appEntry('parallel');
+  assert.ok(parallel);
+  assert.deepEqual(parallel.mcp, {
+    url: 'https://search-mcp.parallel.ai/mcp',
+    transport: 'streamable-http',
+  });
+  assert.deepEqual(parallel.auth, {
+    type: 'key',
+    header: 'Authorization',
+    prefix: 'Bearer ',
+    help_url: 'https://platform.parallel.ai',
+    label: { en: 'Parallel API key', fr: 'Clé API Parallel' },
+  });
 });

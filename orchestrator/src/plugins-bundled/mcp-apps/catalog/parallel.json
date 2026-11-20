@@ -4,27 +4,27 @@
   "publisher": "Parallel Web Systems",
   "category": "productivity",
   "tagline": {
-    "en": "Web search with source-rich excerpts",
-    "fr": "Recherche web avec extraits et sources"
+    "en": "Web search, extraction, decisions and research",
+    "fr": "Recherche, extraction, décisions et analyse du web"
   },
   "description": {
-    "en": "Gives your agents web search and page extraction through Parallel's web_search and web_fetch tools.",
-    "fr": "Vos agents effectuent des recherches web et extraient des pages avec les outils web_search et web_fetch de Parallel."
+    "en": "Offers web_search, web_fetch, web_decisions, image_search, find_verticals, search_vertical, and authenticated web_research through Parallel's unified MCP server.",
+    "fr": "Propose web_search, web_fetch, web_decisions, image_search, find_verticals, search_vertical et web_research avec authentification via le serveur MCP unifié de Parallel."
   },
   "examples": {
     "en": [
       "Find the latest release notes for the libraries in this project",
-      "Compare the current pricing of these three services",
-      "Find official sources about this recent announcement"
+      "Read and summarise these product pages",
+      "Research whether this service meets our requirements, with citations"
     ],
     "fr": [
       "Trouve les dernières notes de version des bibliothèques de ce projet",
-      "Compare les tarifs actuels de ces trois services",
-      "Trouve des sources officielles sur cette annonce récente"
+      "Lis et résume ces pages produit",
+      "Recherche si ce service répond à nos besoins, avec des sources"
     ]
   },
   "mcp": {
-    "url": "https://search-mcp.parallel.ai/mcp",
+    "url": "https://mcp.parallel.ai/mcp",
     "transport": "streamable-http"
   },
   "auth": {
@@ -44,7 +44,8 @@
   },
   "registry": {
     "name": "ai.parallel/search-mcp",
-    "proof": "domain"
+    "proof": "documented",
+    "evidence": "https://docs.parallel.ai/integrations/mcp/quickstart"
   },
   "icon": {
     "monogram": "P",
@@ -81,7 +82,7 @@
     }
   },
   "reviewed": {
-    "on": "2026-11-19",
-    "probe": "key: anonymous initialize answered 401; Parallel API key required"
+    "on": "2026-11-20",
+    "probe": "key: anonymous initialize answered 200; an invalid Bearer API key answered 401"
   }
 }
